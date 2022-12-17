@@ -38,7 +38,9 @@ I used photos from [House Rooms Image Dataset](https://www.kaggle.com/datasets/r
 There is way too many photos of cats. To remove unbalance of domestic cats, and to make training faster, I decided to limit the number of photos for each breed to 1000.
   
 The script for combining datasets and shrinking of breeds is [presented here](/scripts/prepare_dataset.py).  
-The resulted dataset is [published in Google Drive](https://drive.google.com/file/d/1Csr2tC8SZDd___rIibFnI58sXaSkjHMr/view?usp=share_link)
+The resulted dataset is [published in Google Drive](https://drive.google.com/file/d/1Csr2tC8SZDd___rIibFnI58sXaSkjHMr/view?usp=share_link)  
+
+To run this project you need to download and unzip this dataset to the folder `data`.
 
 # EDA
 Let's look at some photos from the dataset.  
