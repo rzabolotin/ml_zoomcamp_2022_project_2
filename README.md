@@ -41,7 +41,7 @@ The script for combining datasets and shrinking of breeds is [presented here](/s
 The resulted dataset is [published in Google Drive](https://drive.google.com/file/d/1Csr2tC8SZDd___rIibFnI58sXaSkjHMr/view?usp=share_link)
 
 # EDA
-Let's look at some photos from the dataset.
+Let's look at some photos from the dataset.  
 There is notebook with overview of the dataset [here](/notebooks/EDA.ipynb)
 
 
