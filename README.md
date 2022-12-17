@@ -67,7 +67,7 @@ I also tried to use different optimizers: Adam, SGD, RMSprop. The best result wa
 The resulted model is [published in Google Drive](https://drive.google.com/file/d/1CtAl6MsrqnWzLDMjWiYJasNjSuT2MsLG/view?usp=sharing)  
 Script for training the model is [here](/scripts/train_model.py)  
 
-If you want to train the model, you need to download and unzip the dataset to the folder `data`, and then run the script.
+If you want to train the model, you need to download and unzip the [dataset](https://drive.google.com/file/d/1Csr2tC8SZDd___rIibFnI58sXaSkjHMr/view?usp=share_link)   to the folder `data`, and then run the script.
 
 # Used technologies
 
