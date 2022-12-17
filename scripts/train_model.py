@@ -36,25 +36,25 @@ def get_datagen(settings):
         width_shift_range=0.15,
         height_shift_range=0.15,
         shear_range=0.15,
-        validation_split=settings.VAL_SPLIT,
+        validation_split=settings["VAL_SPLIT"],
         vertical_flip=True)
 
     train_generator = train_datagen.flow_from_directory(
         directory=CAT_IMAGE_PATH,
-        target_size=(settings.IMG_SIZE, settings.IMG_SIZE),
-        batch_size=settings.BATCH_SIZE,
+        target_size=(settings["IMG_SIZE"], settings["IMG_SIZE"]),
+        batch_size=settings["BATCH_SIZE"],
         class_mode='categorical',
         shuffle=True,
-        seed=settings.RANDOM_SEED,
+        seed=settings["RANDOM_SEED"],
         subset='training')  # set as training data
 
     valid_generator = train_datagen.flow_from_directory(
         directory=CAT_IMAGE_PATH,
-        target_size=(settings.IMG_SIZE, settings.IMG_SIZE),
-        batch_size=settings.BATCH_SIZE,
+        target_size=(settings["IMG_SIZE"], settings["IMG_SIZE"]),
+        batch_size=settings["BATCH_SIZE"],
         class_mode='categorical',
         shuffle=True,
-        seed=settings.RANDOM_SEED,
+        seed=settings["RANDOM_SEED"],
         subset='validation')  # set as training data
 
     return train_generator, valid_generator
@@ -63,14 +63,14 @@ def get_datagen(settings):
 def get_model(settings):
     model = keras.Sequential()
 
-    model.add(EfficientNetB4(weights='imagenet', include_top=False, input_shape=settings.INPUT_SHAPE))
+    model.add(EfficientNetB4(weights='imagenet', include_top=False, input_shape=settings["INPUT_SHAPE"]))
     model.add(layers.GlobalAveragePooling2D())
     model.add(layers.Dense(256, activation='relu'))
-    model.add(layers.Dense(settings.CLASS_NUM, activation='softmax'))
+    model.add(layers.Dense(settings["CLASS_NUM"], activation='softmax'))
 
     model.compile(
         loss="categorical_crossentropy",
-        optimizer=optimizers.Adam(learning_rate=settings.LR),
+        optimizer=optimizers.Adam(learning_rate=settings["LR"]),
         metrics=["accuracy", "top_k_categorical_accuracy"]
     )
 
@@ -87,7 +87,7 @@ def train_model():
         steps_per_epoch=len(train_generator),
         validation_data=valid_generator,
         validation_steps=len(valid_generator),
-        epochs=settings.EPOCHS
+        epochs=settings["EPOCHS"]
     )
 
     return model
