@@ -41,6 +41,12 @@ The script for combining datasets and shrinking of breeds is [presented here](/s
 The resulted dataset is [published in Google Drive](https://drive.google.com/file/d/1Csr2tC8SZDd___rIibFnI58sXaSkjHMr/view?usp=share_link)
 
 # EDA
-I created a shared notebook with EDA and data preparation. You can find it [here](https://www.kaggle.com/alexeykuznetsov/eda-and-data-preparation).
+Let's look at some photos from the dataset.
+There is notebook with overview of the dataset [here](/notebooks/EDA.ipynb)
 
 
+# Used technologies
+
+- Python
+- Saturn Cloud (https://www.saturncloud.io/)
+- # Streamlit (https://www.streamlit.io/)
