@@ -1,0 +1,37 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "3befabfff75f6e7c6e7bf72842395dce3ddbcbad0444e376fd1a1a2ab8d35c2c"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.8"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "loguru": {
+            "hashes": [
+                "sha256:066bd06758d0a513e9836fd9c6b5a75bfb3fd36841f4b996bc60b547a309d41c",
+                "sha256:4e2414d534a2ab57573365b3e6d0234dfb1d84b68b7f3b948e6fb743860a77c3"
+            ],
+            "index": "pypi",
+            "version": "==0.6.0"
+        },
+        "path": {
+            "hashes": [
+                "sha256:30fcdc78febebc7b8732dea1bd7393eed8e1fff9add6791af75a29909508f31b",
+                "sha256:bea3816e1d54f4e33aac78d2031a0b0ed2f95e69db85b45d51f17df97071da69"
+            ],
+            "index": "pypi",
+            "version": "==16.6.0"
+        }
+    },
+    "develop": {}
+}
