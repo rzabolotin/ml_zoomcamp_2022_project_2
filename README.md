@@ -1,9 +1,9 @@
 # Project: cat's breed detection
 Project created at cohort 2022 of ML Zoomcamp course.
 
-The solved problem is a classification problem. We try to predict the breed of a cat by its photo.
-It can be useful for cat's owners to know the breed of their cat, and for cat's shelters to know the breed of the cat to find the owner.
-I created telegram bot for this project. That's a user interface for the model. You can find it [here](https://t.me/cat_breed_detection_bot).
+The solved problem is a classification problem. We try to predict the breed of a cat by its photo.  
+It can be useful for cat's owners to know the breed of their cat, and for cat's shelters to know the breed of the cat to find the owner.  
+I created telegram bot for this project. That's a user interface for the model. You can find it [here](https://t.me/cat_breed_detection_bot).  
 
 ![image](/static/example_breeds.png)
 
