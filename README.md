@@ -26,10 +26,12 @@ The most popular breeds are:
 - Bengal: 2477
 - Tiger: 2256
 
-# Preparing data
+# Images with no cats
+I also decided to add "No cat" category, to allow model find images where there is no cat.    
+I used photos from [House Rooms Image Dataset](https://www.kaggle.com/datasets/robinreni/house-rooms-image-dataset). It contains 5'250 photos of rooms.  
 
-I also need to add photos without cats, to add category "no cat".  
-I add photos from [House Rooms Image Dataset](https://www.kaggle.com/datasets/robinreni/house-rooms-image-dataset). It contains 5'250 photos of rooms.  
+
+# Preparing data
 
 There is way too many photos of cats. To remove unbalance of domestic cats, and to make training faster, I decided to limit the number of photos for each breed to 1000.
   
