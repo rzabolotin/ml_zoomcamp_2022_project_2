@@ -49,4 +49,4 @@ There is notebook with overview of the dataset [here](/notebooks/EDA.ipynb)
 
 - Python
 - Saturn Cloud (https://www.saturncloud.io/)
-- # Streamlit (https://www.streamlit.io/)
+- // Streamlit (https://www.streamlit.io/)
