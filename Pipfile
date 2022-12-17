@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 loguru = "*"
 path = "*"
+scipy = "*"
 
 [dev-packages]
 

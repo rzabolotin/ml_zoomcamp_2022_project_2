@@ -46,9 +46,30 @@ To run this project you need to download and unzip this dataset to the folder `d
 Let's look at some photos from the dataset.  
 There is notebook with overview of the dataset [here](/notebooks/EDA.ipynb)
 
+# Model selection
+I decided to use transfer learning. I used keras framework and tensorflow backend.  
+I have 68 classes in the dataset, so I decided to top 5 accuracy metric, because it is more suitable for multiclass classification.  
+
+In this part of the project, [Saturn Cloud](https://www.saturncloud.io/) helped me a lot.  
+With their Jupyter Lab server I ran [this notebook](/notebooks/model_selection.ipynb) to try different models.
+
+I tried to use different models:
+1. Xception + hidden(256) + dropout(0.25)
+2. EfficientNetB4  + hidden(256) + dropout(0.25)
+3. EfficientNetB4  + hidden(256)
+4. EfficientNetB4  + hidden(100) + dropout(0.25)
+5. EfficientNetB4  + hidden(100)
+
+The best result was achieved with EfficientNetB4  + hidden(256).  
+
+I also tried to use different optimizers: Adam, SGD, RMSprop. The best result was achieved with Adam.
+
+The resulted model is [published in Google Drive](https://drive.google.com/file/d/1CtAl6MsrqnWzLDMjWiYJasNjSuT2MsLG/view?usp=sharing)  
+Script for training the model is [here](/scripts/train_model.py)
 
 # Used technologies
 
 - Python
+- Tensorflow
 - Saturn Cloud (https://www.saturncloud.io/)
 - // Streamlit (https://www.streamlit.io/)
