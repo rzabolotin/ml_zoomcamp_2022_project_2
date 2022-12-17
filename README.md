@@ -5,6 +5,8 @@ The solved problem is a classification problem. We try to predict the breed of a
 It can be useful for cat's owners to know the breed of their cat, and for cat's shelters to know the breed of the cat to find the owner.
 I created telegram bot for this project. That's a user interface for the model. You can find it [here](https://t.me/cat_breed_detection_bot).
 
+![image](/static/example_breeds.png)
+
 # Sources of data
 In this project, I used the data from the [Cat Breeds Dataset](https://www.kaggle.com/datasets/ma7555/cat-breeds-dataset) on Kaggle.
 It contains 126'607 images of cats of 67 breeds.
