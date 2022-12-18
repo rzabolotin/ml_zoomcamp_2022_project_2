@@ -59,6 +59,7 @@ I tried to use different models:
 4. EfficientNetB4  + hidden(100) + dropout(0.25)
 5. EfficientNetB4  + hidden(100)
 
+## Results
 The best result was achieved with EfficientNetB4  + hidden(256).  
 
 I also tried to use different optimizers: Adam, SGD, RMSprop. The best result was achieved with Adam.
