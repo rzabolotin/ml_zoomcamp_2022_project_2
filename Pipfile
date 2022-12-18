@@ -7,7 +7,12 @@ name = "pypi"
 loguru = "*"
 path = "*"
 scipy = "*"
-tensorflow = "*"
+grpcio = "==1.42.0"
+flask = "*"
+gunicorn = "*"
+pillow = "*"
+tensorflow-serving-api = "==2.7.0"
+tensorflow-protobuf = "==2.7.0"
 
 [dev-packages]
 

@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  breed-model:
+    image: breed_model:v3-001
+    build:
+      context: .
+      dockerfile: docker/image-model.dockerfile
+  gateway:
+    image: breed_gateway
+    build:
+      context: .
+      dockerfile: docker/image-gateway.dockerfile
+    ports:
+      - 9696:9696
+    environment:
+      - BREED_MODEL_URL=breed-model:8500
+    depends_on:
+      - breed-model

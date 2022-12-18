@@ -83,11 +83,21 @@ You need to train model first, or download model from [Google Drive](https://dri
 pipenv run python scripts/convert_to_saved_model.py
 ```
 
+I used docker and docker-compose for deployment:
 
+- [image-model](/docker/image-model.dockerfile) for building docker image for model serving.
+- [image-gateway](/docker/image-gateway.dockerfile) for building docker image for flask gateway.
+- [docker-compose.yml](docker-compose.yml) for running docker containers together.
+
+To run the project you need run docker-compose. It will build docker images and run containers.
+
+```shell
+docker-compose up
+```
 
 # Used technologies
 
 - Python
 - Tensorflow
 - Saturn Cloud (https://www.saturncloud.io/)
-- // Streamlit (https://www.streamlit.io/)
+- Docker
