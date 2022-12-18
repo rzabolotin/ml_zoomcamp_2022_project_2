@@ -68,9 +68,8 @@ The resulted model is [published in Google Drive](https://drive.google.com/file/
 
 Score for this model is 0.70 for top 5 accuracy metric.  
 Script for training the model is [here](/scripts/train_model.py)  
-If you want to train the model, you need to download and unzip the [dataset](https://drive.google.com/file/d/1Csr2tC8SZDd___rIibFnI58sXaSkjHMr/view?usp=share_link)   to the folder `data`, and then run the script.
+If you want to train the model, you need to download and unzip the [dataset](https://drive.google.com/file/d/1Csr2tC8SZDd___rIibFnI58sXaSkjHMr/view?usp=share_link)   to the folder `data`, and then run the script:
 
-If you want to train the model, you need to download and unzip the dataset to the folder `data`, and then run the script.
 ```shell
 pipenv run python scripts/train_model.py
 ```
