@@ -65,9 +65,23 @@ The best result was achieved with EfficientNetB4  + hidden(256).
 I also tried to use different optimizers: Adam, SGD, RMSprop. The best result was achieved with Adam.
 
 The resulted model is [published in Google Drive](https://drive.google.com/file/d/1CtAl6MsrqnWzLDMjWiYJasNjSuT2MsLG/view?usp=sharing)  
+Score for this model is 0.70 for top 5 accuracy metric.  
 Script for training the model is [here](/scripts/train_model.py)  
 
 If you want to train the model, you need to download and unzip the dataset to the folder `data`, and then run the script.
+```shell
+pipenv run python scripts/train_model.py
+```
+
+# Deployment
+I used tensorflow saved_model format for deployment.  
+To convert the model to `saved_model` format I used [convert_to_saved_model.py](/scripts/convert_to_saved_model.py)  
+You need to train model first, or download model from [Google Drive](https://drive.google.com/file/d/1CtAl6MsrqnWzLDMjWiYJasNjSuT2MsLG/view?usp=sharing)
+```shell
+pipenv run python scripts/convert_to_saved_model.py
+```
+
+
 
 # Used technologies
 
