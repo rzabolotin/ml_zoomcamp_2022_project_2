@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tf-serving-cat-breeds-model
+  labels:
+    app: tf-serving-cat-breeds-model
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: tf-serving-cat-breeds-model
+      labels:
+        app: tf-serving-cat-breeds-model
+    spec:
+      containers:
+        - name: tf-serving-cat-breeds-model
+          image: breed_model:v3-001
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: 512Mi
+            requests:
+              cpu: "0.5"
+              memory: 256Mi
+          ports:
+            - containerPort: 8500
+
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: tf-serving-cat-breeds-model
+

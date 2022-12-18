@@ -78,6 +78,7 @@ pipenv run python scripts/train_model.py
 I used tensorflow saved_model format for deployment.  
 To convert the model to `saved_model` format I used [convert_to_saved_model.py](/scripts/convert_to_saved_model.py)  
 You need to train model first, or download model from [Google Drive](https://drive.google.com/file/d/1CtAl6MsrqnWzLDMjWiYJasNjSuT2MsLG/view?usp=sharing)
+
 ```shell
 pipenv run python scripts/convert_to_saved_model.py
 ```
@@ -94,9 +95,44 @@ To run the project you need run docker-compose. It will build docker images and 
 docker-compose up
 ```
 
+There is the [notebook](notebooks/tf_serving_connector.ipynb) with example of using deployed model in docker container.
+After that, I converted it to the [gateway.py](scripts/gateway.py) script, and create Flask app for serving the model.
+
+To use the service you need to send POST request to the endpoint `http://localhost:9696/predict` with json body:
+```json
+{
+  "url":"https://github.com/rzabolotin/ml_zoomcamp_2022_project_2/blob/main/static/burmila.jpg?raw=true"
+}
+```
+I used [postman](https://www.postman.com/) for testing.
+
+# Local kubernetes deployment
+
+I used [kind](https://kind.sigs.k8s.io/) for local kubernetes deployment.
+
+To run the project you need to run the following commands:
+```shell
+# create kubernetes cluster
+kind create cluster 
+
+# apply all kubernetes configs
+kubectl apply -f kube-config/model-deployment.yaml 
+kubectl apply -f kube-config/model-service.yaml
+kubectl apply -f kube-config/gateway-deployment.yaml
+kubectl apply -f kube-config/gateway-service.yaml
+
+# make port forwarding to gateway service
+kubectl port-forward service/gateway-service 80:9696
+```
+
+After that you can send POST request to localhost:9696/predict with url of cat image, and service will return json with prediction.
+
+
 # Used technologies
 
 - Python
 - Tensorflow
 - Saturn Cloud (https://www.saturncloud.io/)
 - Docker
+- Postman
+- Kind
