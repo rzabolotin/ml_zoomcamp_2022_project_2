@@ -100,7 +100,7 @@ I used docker and docker-compose for local deployment:
 
 - [image-model](/docker/image-model.dockerfile) for building docker image for model serving.
 - [image-gateway](/docker/image-gateway.dockerfile) for building docker image for flask gateway.
-- [docker-compose.yml](docker-compose.yml) for running docker containers together.
+- [docker-compose.yml](docker-compose.yaml) for running docker containers together.
 
 To run the project you need run docker-compose. It will build docker images and run containers.
 
@@ -129,6 +129,33 @@ kubectl port-forward service/gateway-service 80:9696
 
 After that you can send the same  POST request to `http://localhost:9696/predict`, and service will reply with json answer.
 
+# Deploying to AWS EKS
+I used [eksctl](https://eksctl.io/) for creating EKS cluster.
+```shell
+eksctl create cluster -f kube-config/eks-config.yaml
+```
+Then you need to create ECR repository for docker images and push them there.
+```shell
+aws ecr create-repository --repository-name ml-zoomcamp
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 123456789012.dkr.ecr.us-east-1.amazonaws.com
+
+docker tag breed_model:v3-001 123456789012.dkr.ecr.us-east-1.amazonaws.com/ml-zoomcamp:breed_model-v3-001
+docker push 123456789012.dkr.ecr.us-east-1.amazonaws.com/ml-zoomcamp:breed_model-v3-001
+
+docker tag breed_gateway 123456789012.dkr.ecr.us-east-1.amazonaws.com/ml-zoomcamp:breed-gateway
+docker push 123456789012.dkr.ecr.us-east-1.amazonaws.com/ml-zoomcamp:breed-gateway
+```
+
+Then you need to apply kubernetes configs:
+```shell
+kubectl apply -f kube-config/model-deployment.yaml
+kubectl apply -f kube-config/model-service.yaml
+kubectl apply -f kube-config/gateway-deployment.yaml
+kubectl apply -f kube-config/gateway-service.yaml
+```
+
+After that you can send the same  POST request, but sent it to EKS public API endpoint.  
+(for me it was http://a1554c88daf744e1a85752b08be1e24c-1291281226.us-east-1.elb.amazonaws.com/predict, but I deleted the cluster, so it is not available now)
 
 # Used technologies
 
@@ -138,3 +165,4 @@ After that you can send the same  POST request to `http://localhost:9696/predict
 - Docker
 - Postman
 - Kind
+- AWS EKS

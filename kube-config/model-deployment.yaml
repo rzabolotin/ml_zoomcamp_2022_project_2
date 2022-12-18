@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: tf-serving-cat-breeds-model
-          image: breed_model:v3-001
+          # image: breed_model:v3-001 # for local deployment
+          image: 337330634567.dkr.ecr.us-east-1.amazonaws.com/ml-zoomcamp:breed-model-v3-001
           imagePullPolicy: IfNotPresent
           resources:
             limits:
