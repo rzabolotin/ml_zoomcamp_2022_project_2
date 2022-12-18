@@ -83,7 +83,20 @@ You need to train model first, or download model from [Google Drive](https://dri
 pipenv run python scripts/convert_to_saved_model.py
 ```
 
-I used docker and docker-compose for deployment:
+## Creating service
+There is the [notebook](notebooks/tf_serving_connector.ipynb) with example of using deployed model in docker container.  
+After that, I converted it to the [gateway.py](scripts/gateway.py) script.  
+And then I created Flask app for the API.
+
+I used [postman](https://www.postman.com/) for testing. To use the service you need to send POST request to the endpoint `http://localhost:9696/predict` with json body:
+```json
+{
+  "url":"https://github.com/rzabolotin/ml_zoomcamp_2022_project_2/blob/main/static/burmila.jpg?raw=true"
+}
+```
+
+## Containerization
+I used docker and docker-compose for local deployment:
 
 - [image-model](/docker/image-model.dockerfile) for building docker image for model serving.
 - [image-gateway](/docker/image-gateway.dockerfile) for building docker image for flask gateway.
@@ -94,17 +107,6 @@ To run the project you need run docker-compose. It will build docker images and 
 ```shell
 docker-compose up
 ```
-
-There is the [notebook](notebooks/tf_serving_connector.ipynb) with example of using deployed model in docker container.
-After that, I converted it to the [gateway.py](scripts/gateway.py) script, and create Flask app for serving the model.
-
-To use the service you need to send POST request to the endpoint `http://localhost:9696/predict` with json body:
-```json
-{
-  "url":"https://github.com/rzabolotin/ml_zoomcamp_2022_project_2/blob/main/static/burmila.jpg?raw=true"
-}
-```
-I used [postman](https://www.postman.com/) for testing.
 
 # Local kubernetes deployment
 
