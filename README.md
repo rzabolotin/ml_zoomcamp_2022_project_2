@@ -127,7 +127,7 @@ kubectl apply -f kube-config/gateway-service.yaml
 kubectl port-forward service/gateway-service 80:9696
 ```
 
-After that you can send POST request to localhost:9696/predict with url of cat image, and service will return json with prediction.
+After that you can send the same  POST request to `http://localhost:9696/predict`, and service will reply with json answer.
 
 
 # Used technologies
